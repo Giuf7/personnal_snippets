@@ -1,0 +1,196 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	//
+	// You can also restrict snippets to specific files using include/exclude patterns:
+	// "Test snippet": {
+	// 	"prefix": "test",
+	// 	"body": "test('$1', () => {\n\t$0\n});",
+	// 	"include": ["**/*.test.ts", "*.spec.ts"],
+	// 	"exclude": ["**/temp/*.ts"],
+	// 	"description": "Insert test block"
+	// }
+
+	"Route de base FastAPI": {
+    	"prefix": "fastroute",
+    	"body": [
+    	    "@app.route(\"/\", methods=['$1']) ",
+    	    "def ${3:function_name}():",
+    	    "    try:",
+    	    "        ${0:# Ta logique ici}",
+    	    "        return {\"status\": \"success\"}",
+    	    "    except Exception as e:",
+    	    "        return {\"error\": str(e)}"
+    	],
+    	"description": "Génère une route de base FastAPI/Flask avec try/except"
+	},
+
+	"Route de base Flask": {
+        "prefix": "flaskroute",
+        "body": [
+            "@app.${1|get,post,put,delete|}(\"${2:/}\")",
+            "def ${3:function_name}():",
+            "    try:",
+            "        ${0:pass}",
+            "        return {\"status\": \"success\"}",
+            "    except Exception as e:",
+            "        return {\"error\": str(e)}"
+        ],
+        "description": "Génère une route FastAPI moderne avec try/except"
+    },
+
+	"Initialisation Flask-SQLAlchemy": {
+        "prefix": "flaskdb",
+        "body": [
+            "import os",
+            "from flask import Flask",
+            "from flask_sqlalchemy import SQLAlchemy",
+            "from dotenv import load_dotenv",
+            "",
+            "load_dotenv()",
+            "",
+            "app = Flask(__name__)",
+            "app.config[\"SQLALCHEMY_DATABASE_URI\"] = os.getenv(\"CONNECTION_STRING\")",
+            "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False",
+            "",
+            "db = SQLAlchemy(app)",
+            "$0"
+        ],
+        "description": "Initialise Flask et Flask-SQLAlchemy avec les variables d'environnement"
+    },
+
+	"Bloc Try Except complet": {
+        "prefix": "tryex",
+        "body": [
+            "try:",
+            "    ${1:pass}",
+            "except ${2:Exception} as e:",
+            "    print(f'Une erreur est survenue : {e}')",
+            "$0"
+        ],
+        "description": "Génère un bloc try/except propre avec gestion de l'erreur"
+	},
+
+	"Structure de démarrage Main": {
+        "prefix": "main",
+        "body": [
+            "def main():",
+            "    ${0:pass}",
+            "",
+            "if __name__ == \"__main__\":",
+            "    main()"
+        ],
+        "description": "Crée la structure de démarrage standard pour un script Python"
+    },
+
+	"Classe de base SQLAlchemy": {
+        "prefix": "declabase",
+        "body": [
+            "from sqlalchemy.orm import DeclarativeBase",
+            "",
+            "class Base(DeclarativeBase):",
+            "    pass"
+        ],
+        "description": "Génère la classe DeclarativeBase pour les modèles SQLAlchemy"
+    },
+
+	"Modèle de table SQLAlchemy 2.0": {
+        "prefix": "alchsqlmodel",
+        "body": [
+            "from sqlalchemy.orm import Mapped, mapped_column",
+            "from sqlalchemy import String, Integer",
+            "from .database import Base",
+            "",
+            "class ${1:User}(Base):",
+            "    __tablename__ = \"${2:users}\"",
+            "",
+            "    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)",
+            "    ${3:name}: Mapped[str] = mapped_column(String(${4:50}), nullable=False)",
+            "    $0"
+        ],
+        "description": "Crée un modèle de table standard avec SQLAlchemy 2.0"
+    },
+
+	"Configuration Session SQLAlchemy": {
+        "prefix": "alchsqlconn",
+        "body": [
+            "import os",
+            "from sqlalchemy import create_engine",
+            "from sqlalchemy.orm import sessionmaker",
+            "",
+            "DATABASE_URL = os.getenv(\"CONNECTION_STRING\")",
+            "",
+            "engine = create_engine(DATABASE_URL, echo=True)",
+            "SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)",
+            "",
+            "# Dépendance pour récupérer la session (parfait pour FastAPI)",
+            "def get_db():",
+            "    db = SessionLocal()",
+            "    try:",
+            "        yield db",
+            "    finally:",
+            "        db.close()",
+            "$0"
+        ],
+        "description": "Configure l'engine et la session de base de données pour SQLAlchemy"
+    },
+
+	// "Modèle de table Flask-SQLAlchemy": {
+    //     "prefix": "flaskmodel",
+    //     "body": [
+    //         "class ${1:User}(db.Model):",
+    //         "    __tablename__ = \"${2:users}\"",
+    //         "",
+    //         "    id = db.Column(db.Integer, primary_key=True)",
+    //         "    ${3:username} = db.Column(db.String(${4:80}), unique=True, nullable=False)",
+    //         "    $0"
+    //     ],
+    //     "description": "Crée un modèle de table standard pour Flask-SQLAlchemy"
+    // }
+
+	"Route Flask découplée": {
+        "prefix": "flaskbp",
+        "body": [
+            "from flask import Blueprint",
+            "from app.controllers.${1:user_controller} import ${2:handle_data}",
+            "",
+            "${3:blueprint_name} = Blueprint('${3:blueprint_name}', __name__)",
+            "",
+            "@${3:blueprint_name}.route(\"/${4:route_path}\", methods=[\"${5|GET,POST,PUT,DELETE|}\"])( ${2:handle_data} )",
+            "$0"
+        ],
+        "description": "Crée une route Flask qui délègue le travail à un controller"
+    },
+
+	"Controller Flask pur": {
+        "prefix": "flaskcontrol",
+        "body": [
+            "from flask import request, jsonify",
+            "from ${1:app.database} import get_db",
+            "from ${2:app.models} import ${3:ModelName}",
+            "",
+            "def ${4:handle_data}(*args, **kwargs):",
+            "    db = next(get_db())",
+            "    try:",
+            "        # Ta logique ici (ex: db.query(${3:ModelName}).all())",
+            "        $0",
+            "        return jsonify({\"status\": \"success\"}), 200",
+            "    except Exception as e:",
+            "        db.rollback()",
+            "        return jsonify({\"error\": str(e)}), 500"
+        ],
+        "description": "Crée une fonction de controller pure pour la logique métier"
+    }
+
+}
