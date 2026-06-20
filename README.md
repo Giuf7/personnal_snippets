@@ -20,7 +20,7 @@ L'installation prend moins de 2 minutes. Suis ces étapes :
 * **Pour les snippets globaux (`envsql`) :** Sélectionne `dotenv`.
 
 ### 3. Copier le code
-* Vide le fichier qui vient de s'ouvrir (ou garde tes accolades `{}` principales).
+* Remplace le contenu fichier qui vient de s'ouvrir.
 * Copie et colle les blocs JSON de ce dépôt à l'intérieur des accolades.
 * Sauvegarde le fichier (`Ctrl + S` ou `Cmd + S`).
 
