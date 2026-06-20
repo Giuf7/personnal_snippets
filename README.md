@@ -13,7 +13,7 @@ L'installation prend moins de 2 minutes. Suis ces étapes :
 * Utilise le raccourci clavier :
   * **Windows / Linux :** `Ctrl + Shift + P`
   * **Mac :** `Cmd + Shift + P`
-* Dans la barre de recherche qui apparaît, tape : **`Configure User Snippets`** (ou *Configurer les extraits de code utilisateur*) et appuie sur `Entrée`.
+* Dans la barre de recherche qui apparaît, tape : **`Snippets: Configure Snippets`** (ou *Configurer les extraits de code utilisateur*) et appuie sur `Entrée`.
 
 ### 2. Choisir le bon fichier
 * **Pour les snippets Python (`tryex`, `flaskroute`, `flaskcontrol`, `sqlbase`) :** Tape `python` dans la liste et sélectionne `python.json`.
