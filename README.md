@@ -17,7 +17,8 @@ L'installation prend moins de 2 minutes. Suis ces étapes :
 
 ### 2. Choisir le bon fichier
 * **Pour les snippets Python (`tryex`, `flaskroute`, `flaskcontrol`, `sqlbase`) :** Tape `python` dans la liste et sélectionne `python.json`.
-* **Pour les snippets globaux (`envsql`) :** Sélectionne `dotenv`.
+* **Pour les snippets dotenv (`envsql`) :** Sélectionne `dotenv`.
+* **Pour les snippets html (`html`) :** Sélectionne `html`.
 
 ### 3. Copier le code
 * Remplace le contenu fichier qui vient de s'ouvrir.
