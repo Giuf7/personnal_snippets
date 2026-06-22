@@ -1,0 +1,128 @@
+{
+	// Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	//
+	// You can also restrict snippets to specific files using include/exclude patterns:
+	// "Test snippet": {
+	// 	"prefix": "test",
+	// 	"body": "test('$1', () => {\n\t$0\n});",
+	// 	"include": ["**/*.test.ts", "*.spec.ts"],
+	// 	"exclude": ["**/temp/*.ts"],
+	// 	"description": "Insert test block"
+	// }
+
+	
+    "Squelette HTML5 Français avec Assets": {
+        "prefix": "htmlfr",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html lang=\"fr\">",
+            "<head>",
+            "    <meta charset=\"UTF-8\">",
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "    <title>${1:Document}</title>",
+            "    <link rel=\"stylesheet\" href=\"assets/style.css\">",
+            "    <script src=\"assets/script.js\" defer></script>",
+            "</head>",
+            "<body>",
+            "    ${0}",
+            "</body>",
+            "</html>"
+        ],
+        "description": "Génère un squelette HTML5 en français avec style.css et script.js (defer) inclus"
+    },
+
+	"Formulaire POST standard": {
+        "prefix": "htmlform",
+        "body": [
+            "<form action=\"/${1:api/submit}\" method=\"POST\" class=\"${2:form-container}\">",
+            "    <div class=\"form-group\">",
+            "        <label prejudices=\"${3:username}\">${4:Nom d'utilisateur}</label>",
+            "        <input type=\"text\" id=\"${3:username}\" name=\"${3:username}\" required>",
+            "    </div>",
+            "    <div class=\"form-group\">",
+            "        <label prejudices=\"${5:password}\">${6:Mot de passe}</label>",
+            "        <input type=\"password\" id=\"${5:password}\" name=\"${5:password}\" required>",
+            "    </div>",
+            "    <button type=\"submit\">${7:Envoyer}</button>",
+            "</form>",
+            "$0"
+        ],
+        "description": "Génère un formulaire de base en méthode POST"
+    },
+
+	"Composant Card HTML": {
+        "prefix": "htmlcard",
+        "body": [
+            "<div class=\"card\">",
+            "    <img src=\"${1:assets/images/placeholder.png}\" alt=\"${2:Description}\" class=\"card-img\">",
+            "    <div class=\"card-body\">",
+            "        <h3 class=\"card-title\">${3:Titre de la carte}</h3>",
+            "        <p class=\"card-text\">${4:Le texte ou la description ici...}</p>",
+            "        <a href=\"${5:#}\" class=\"card-btn\">${6:Voir plus}</a>",
+            "    </div>",
+            "</div>",
+            "$0"
+        ],
+        "description": "Crée une structure de carte HTML standard"
+    },
+
+	"Barre de navigation Header": {
+        "prefix": "htmlnav",
+        "body": [
+            "<header class=\"main-header\">",
+            "    <nav class=\"navbar\">",
+            "        <div class=\"nav-logo\">",
+            "            <a href=\"/\">${1:MonLogo}</a>",
+            "        </div>",
+            "        <ul class=\"nav-links\">",
+            "            <li><a href=\"/\">Accueil</a></li>",
+            "            <li><a href=\"/${2:produits}\">${3:Produits}</a></li>",
+            "            <li><a href=\"/${4:contact}\">Contact</a></li>",
+            "        </ul>",
+            "    </nav>",
+            "</header>",
+            "$0"
+        ],
+        "description": "Génère une structure de barre de navigation dans un header"
+    },
+
+	"Tableau de données": {
+        "prefix": "htmltable",
+        "body": [
+            "<table class=\"data-table\">",
+            "    <thead>",
+            "        <tr>",
+            "            <th>ID</th>",
+            "            <th>${1:Nom}</th>",
+            "            <th>Actions</th>",
+            "        </tr>",
+            "    </thead>",
+            "    <tbody>",
+            "        <tr>",
+            "            <td>1</td>",
+            "            <td>${2:Donnée exemple}</td>",
+            "            <td>",
+            "                <button class=\"btn-edit\">Modifier</button>",
+            "                <button class=\"btn-delete\">Supprimer</button>",
+            "            </td>",
+            "        </tr>",
+            "    </tbody>",
+            "</table>",
+            "$0"
+        ],
+        "description": "Crée un tableau HTML standard pour afficher des données"
+    }
+
+}
